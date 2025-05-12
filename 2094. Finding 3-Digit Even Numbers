@@ -1,0 +1,27 @@
+You are given an integer array digits, where each element is a digit. The array may contain duplicates.
+You need to find all the unique integers that follow the given requirements:
+The integer consists of the concatenation of three elements from digits in any arbitrary order.
+The integer does not have leading zeros.
+The integer is even.
+For example, if the given digits were [1, 2, 3], integers 132 and 312 follow the requirements.
+
+Return a sorted array of the unique integers.
+#code here
+class Solution(object):
+    def findEvenNumbers(self, digits):
+        mpp = [0]*10
+        for d in digits:
+            mpp[d] += 1
+        res = []
+        for i in range(1, 10):
+            if mpp[i] == 0: continue
+            mpp[i] -= 1
+            for j in range(10):
+                if mpp[j] == 0: continue
+                mpp[j] -= 1
+                for k in range(0, 10, 2):
+                    if mpp[k] == 0: continue
+                    res.append(i*100 + j*10 + k)
+                mpp[j] += 1
+            mpp[i] += 1
+        return res
