@@ -9,7 +9,7 @@ The "linked list" should be in the same order as a pre-order traversal of the bi
 #         self.right = right
 class Solution:
     def flatten(self, root: Optional[TreeNode]) -> None:
-       current root
+       current= root
        while current:
             if current.left:
                 predecessor= current.left
