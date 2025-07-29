@@ -1,16 +1,17 @@
+# 👨‍💻
 LeetCode DSA Problems 📘
 This repository contains my personal solutions to LeetCode problems, organized by problem number.
 
-📌 About
+# 📌 About
 Languages used:  Python3, Java.
 
-✅ Purpose
+# ✅ Purpose
 Practice Data Structures and Algorithms.
 Track personal problem-solving progress.
 Prepare for coding interviews.
 
 
-🧠 Topics Covered
+# 🧠 Topics Covered
 Arrays
 Strings
 Linked Lists
@@ -20,10 +21,10 @@ Greedy
 And more...
 
 
-💡 How to Use
+# 💡 How to Use
 Browse the repo and search by problem number or title.
 Open the file to view the solution.
 Check comments inside for logic/approach.
 
 
-🌟 Star the repo if you find it helpful!
+# 🌟 Star the repo if you find it helpful!
