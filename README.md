@@ -1,4 +1,4 @@
-# 👨‍💻 # LeetCode DSA Problems 📘
+# 👨‍💻  LeetCode DSA Problems 📘
 
 This repository contains my personal solutions to LeetCode problems, organized by problem number.
 
