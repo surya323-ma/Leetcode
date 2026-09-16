@@ -1,98 +1,61 @@
-#!/usr/bin/env python3
-"""
-update_readme.py
+# 👨‍💻 LeetCode DSA Problems 📘
 
-Counts the LeetCode solution files in this repository and rewrites the
-"Stats" table in README.md between the STATS-START / STATS-END markers.
+This repository contains my personal solutions to LeetCode problems, organized by problem number.
 
-Usage:
-    python update_readme.py
+## 📌 About
 
-Run this any time after adding new solution files, or wire it up as a
-git pre-commit hook (see README.md).
-"""
+Each solution lives in its own file, named after the problem number and title, for example:
 
-import os
-from datetime import datetime, timezone
+- `42. Trapping Rain Water.py`
+- `3487. Maximum Unique Subarray Sum After Deletion.py`
 
-README_PATH = "README.md"
-SCRIPT_NAME = os.path.basename(__file__)
+**Languages used:** Python, Java
 
-# File extensions that count as "solutions"
-SOLUTION_EXTENSIONS = {".py": "Python", ".java": "Java"}
+## 📊 Stats
 
-# Folders to skip entirely
-IGNORED_DIRS = {".git", ".github", "__pycache__", "venv", ".venv", "node_modules"}
+<!-- STATS-START -->
+| Metric | Count |
+|---|---|
+| Total solutions | 0 |
+| Python solutions | 0 |
+| Java solutions | 0 |
 
-START_MARKER = "<!-- STATS-START -->"
-END_MARKER = "<!-- STATS-END -->"
+_Last updated: 2026-09-16 16:44 UTC_
+<!-- STATS-END -->
 
+> These numbers are generated automatically — see [Auto-updating stats](#-auto-updating-stats) below.
 
-def count_solutions(root="."):
-    """Walk the repo and count solution files per language."""
-    counts = {lang: 0 for lang in SOLUTION_EXTENSIONS.values()}
+## ✅ Purpose
 
-    for dirpath, dirnames, filenames in os.walk(root):
-        # Don't descend into ignored directories
-        dirnames[:] = [d for d in dirnames if d not in IGNORED_DIRS and not d.startswith(".")]
+- Practice Data Structures and Algorithms
+- Track personal problem-solving progress
+- Prepare for coding interviews
 
-        for filename in filenames:
-            if filename == SCRIPT_NAME or filename == README_PATH:
-                continue
+## 🧠 Topics Covered
 
-            _, ext = os.path.splitext(filename)
-            if ext in SOLUTION_EXTENSIONS:
-                counts[SOLUTION_EXTENSIONS[ext]] += 1
+- Arrays
+- Strings
+- Linked Lists
+- Trees & Graphs
+- Dynamic Programming
+- Backtracking
+- Greedy
+- And more...
 
-    return counts
+## 💡 How to Use
 
+1. Browse the repo and search by problem number or title.
+2. Open the file to view the solution.
+3. Check comments inside for logic/approach.
 
-def build_stats_block(counts):
-    total = sum(counts.values())
-    timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+## 🔄 Auto-updating stats
 
-    lines = [START_MARKER, "| Metric | Count |", "|---|---|"]
-    lines.append(f"| Total solutions | {total} |")
-    for lang, count in counts.items():
-        lines.append(f"| {lang} solutions | {count} |")
-    lines.append("")
-    lines.append(f"_Last updated: {timestamp}_")
-    lines.append(END_MARKER)
+This repo includes `update_readme.py`, a small script that counts the solution files in the repo and rewrites the **Stats** table above automatically.
 
-    return "\n".join(lines)
+Run it any time after adding new solutions:
 
+```bash
+python update_readme.py
+```
 
-def update_readme(stats_block):
-    if not os.path.exists(README_PATH):
-        raise FileNotFoundError(f"{README_PATH} not found in current directory.")
-
-    with open(README_PATH, "r", encoding="utf-8") as f:
-        content = f.read()
-
-    if START_MARKER not in content or END_MARKER not in content:
-        raise ValueError(
-            f"Could not find {START_MARKER} / {END_MARKER} markers in {README_PATH}. "
-            "Add them around the Stats table before running this script."
-        )
-
-    before = content.split(START_MARKER)[0]
-    after = content.split(END_MARKER)[1]
-
-    new_content = before + stats_block + after
-
-    with open(README_PATH, "w", encoding="utf-8") as f:
-        f.write(new_content)
-
-
-def main():
-    counts = count_solutions(".")
-    stats_block = build_stats_block(counts)
-    update_readme(stats_block)
-
-    total = sum(counts.values())
-    print(f"README.md updated: {total} total solutions "
-          f"({', '.join(f'{lang}: {c}' for lang, c in counts.items())})")
-
-
-if __name__ == "__main__":
-    main()
+It scans the repo for `.py` and `.java` files (skipping itself, hidden folders, and non-solution files like this README), then updates the counts and the "last updated" timestamp between the `<!-- STATS-START -->` and `
