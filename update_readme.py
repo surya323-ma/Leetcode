@@ -15,7 +15,7 @@ from datetime import datetime, timezone
 README_PATH = "README.md"
 SCRIPT_NAME = os.path.basename(__file__)
 
-SOLUTION_EXTENSIONS = {".py": "Python", ".java": "Java"}
+SOLUTION_EXTENSIONS = {".py": "Python", ".java": "Java",".c":".c"}
 IGNORED_DIRS = {".git", ".github", "__pycache__", "venv", ".venv", "node_modules"}
 
 START_MARKER = "<!-- STATS-START -->"
