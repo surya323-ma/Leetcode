@@ -1,4 +1,4 @@
-Under the grammar given below, strings can represent a set of lowercase words. Let R(expr) denote the set of words the expression represents.
+""Under the grammar given below, strings can represent a set of lowercase words. Let R(expr) denote the set of words the expression represents.
 
 The grammar can best be understood through simple examples:
 
@@ -12,11 +12,10 @@ When we concatenate two expressions, we take the set of possible concatenations 
 R("{a,b}{c,d}") = {"ac","ad","bc","bd"}
 R("a{b,c}{d,e}f{g,h}") = {"abdfg", "abdfh", "abefg", "abefh", "acdfg", "acdfh", "acefg", "acefh"}
 Formally, the three rules for our grammar:
-
 For every lowercase letter x, we have R(x) = {x}.
 For expressions e1, e2, ... , ek with k >= 2, we have R({e1, e2, ...}) = R(e1) ∪ R(e2) ∪ ...
 For expressions e1 and e2, we have R(e1 + e2) = {a + b for (a, b) in R(e1) × R(e2)}, where + denotes concatenation, and × denotes the cartesian product.
-Given an expression representing a set of words under the given grammar, return the sorted list of words that the expression represents.
+Given an expression representing a set of words under the given grammar, return the sorted list of words that the expression represents.""
 
  class Solution:
     def braceExpansionII(self, expr: str) -> list[str]:
