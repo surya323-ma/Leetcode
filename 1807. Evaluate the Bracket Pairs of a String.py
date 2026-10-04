@@ -6,7 +6,7 @@ You are tasked to evaluate all of the bracket pairs. When you evaluate a bracket
 Replace keyi and the bracket pair with the key's corresponding valuei.
 If you do not know the value of the key, you will replace keyi and the bracket pair with a question mark "?" (without the quotation marks).
 Each key will appear at most once in your knowledge. There will not be any nested brackets in s.
-Return the resulting string after evaluating all of the bracket pairs."
+Return the resulting string after evaluating all of the bracket pairs.";;;;
 """'''''
 class Solution:
     def evaluate(self, s: str, knowledge: list[list[str]]) -> str:
